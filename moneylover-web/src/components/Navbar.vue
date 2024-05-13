@@ -1,15 +1,16 @@
 <template>
   <nav>
-    <beaker-icon class="icon"/>
-        <cog-6-tooth-icon class="icon"/>
+    <balance-component :balance="10000000"></balance-component>
   </nav>
 </template>
 
 <script>
-import { BeakerIcon, Cog6ToothIcon } from '@heroicons/vue/24/solid';
+import Balance from "../components/Balance.vue";
 export default {
   name: "Navbar",
-  components: { BeakerIcon, Cog6ToothIcon }
+  components: {
+    "balance-component": Balance,
+  },
 };
 </script>
 

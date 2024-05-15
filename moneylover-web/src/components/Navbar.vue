@@ -22,6 +22,10 @@ nav {
   display: flex;
   box-sizing: border-box;
   justify-content: space-between;
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top */
 }
 
 ul {

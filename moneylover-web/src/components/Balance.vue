@@ -1,7 +1,11 @@
 <!-- balance-component.vue -->
 <template>
   <div class="balance">
-    <p>Số dư hiện tại: {{ formatCurrency(balance) }}</p>
+    <i class="pi pi-wallet" style="font-size: 3rem; color: #333"></i>
+    <div class="balance-text">
+      <p>Số dư</p>
+      <p style="font-weight: 700">{{ formatCurrency(balance) }}</p>
+    </div>
   </div>
 </template>
 
@@ -17,10 +21,20 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="scss">
 .balance {
-  p {
+  &-text {
     color: #333;
+    font-size: 1rem;
+    line-height: 0.5rem;
+    p {
+      line-height: 1rem;
+      margin: 0.5rem auto;
+    }
+    text-align: left;
   }
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 </style>

@@ -1,7 +1,6 @@
-import HelloWorld from '../components/HelloWorld.vue';
+import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Profile from '../views/Profile.vue';
-import { createRouter, createWebHistory } from 'vue-router';
 
 interface RouteConfig {
     path: string;
@@ -13,11 +12,6 @@ interface RouteConfig {
 const routes: RouteConfig[] = [
     {
         path: "/",
-        component: HelloWorld,
-        name: "HelloWorld"
-    },
-    {
-        path: "/home",
         component: Home,
         name: "Home"
     },

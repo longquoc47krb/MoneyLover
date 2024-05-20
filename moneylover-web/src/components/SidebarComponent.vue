@@ -1,21 +1,45 @@
 <template>
   <div class="sidebar flex justify-content-center">
-    <Sidebar v-model:visible="visible">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </p>
+    <Sidebar v-model:visible="visible" class="p-0">
+      <MenuComponent :menuItems="menuItems" />
     </Sidebar>
-    <Button class="button-sidebar" icon="pi pi-bars" @click="visible = true" />
+    <Button
+      class="button-sidebar h-fit"
+      icon="pi pi-bars"
+      @click="visible = true"
+    />
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import MenuComponent from "../components/Menu/MenuComponent.vue";
+// Props for SidebarComponent
+const props = defineProps({
+  modelValue: Boolean,
+});
+// Emit to parent component
+const emit = defineEmits(["update:modelValue"]);
+// Local state
+const visible = ref(props.modelValue);
 
-const visible = ref(false);
+// Watch for prop changes
+watch(
+  () => props.modelValue,
+  (newValue) => {
+    visible.value = newValue;
+  }
+);
+
+// Watch for local changes
+watch(visible, (newValue) => {
+  emit("update:modelValue", newValue);
+});
+const menuItems = [
+  { icon: "pi-user", title: "Tài khoản" },
+  { icon: "pi-wallet", title: "Ví của tôi" },
+  { icon: "pi-box", title: "Thể loại" },
+];
 </script>
 
 <style lang="scss">
@@ -32,6 +56,12 @@ const visible = ref(false);
 }
 .p-sidebar-header {
   justify-content: flex-end;
+}
+.p-sidebar-close {
+  display: none;
+}
+.p-sidebar-content {
+  padding: 0;
 }
 .button-sidebar {
   background: transparent;

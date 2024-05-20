@@ -2,7 +2,7 @@
 <template>
   <div class="balance">
     <i class="pi pi-wallet" style="font-size: 2rem; color: #333"></i>
-    <div class="balance-text">
+    <div class="balance-text text-xs">
       <p>Số dư</p>
       <p style="font-weight: 700">{{ formatCurrency(balance) }}</p>
     </div>
@@ -25,8 +25,6 @@ export default {
 .balance {
   &-text {
     color: #333;
-    font-size: 0.8rem;
-    line-height: 0.5rem;
     p {
       line-height: 0.5rem;
       margin: 0.5rem auto;

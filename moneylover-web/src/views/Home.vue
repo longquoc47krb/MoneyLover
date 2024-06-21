@@ -1,16 +1,19 @@
 <template>
   <Layout>
-    <h1>Home Page</h1>
-    <p>This is the home page content.</p>
+    <div class="flex items-center justify-center m-4">
+      <TransactionComponent />
+    </div>
   </Layout>
 </template>
 
 <script>
 import Layout from "../layouts/Default.vue";
+import TransactionComponent from "../components/Transaction/TransactionComponent.vue";
 export default {
   name: "Home",
   components: {
     Layout,
+    TransactionComponent,
   },
 };
 </script>
